@@ -9,7 +9,7 @@
 //static struct class *firstdrv_class;
 //static struct class_device  *firstdrv_class_dev;
 
-#define set 
+//#define set 
 
 static int first_drv_open(struct inode *inode, struck file *file)
 {
@@ -38,6 +38,12 @@ static ssize_t first_drv_write(struct file *file, const char __user *buf,size_t 
 	printk("first_drv_write\n");
 	return 0;
 }                                                //写出led_write函数
+
+static ssize_t first_drv_read(struct file *file, char __user *buf, size_t len, loff_t *ppos)
+{
+	//printk("first_drv_read\n");
+	return 0;
+}
 
 static struct file_operations first_drv_fops = {
 	.owner =  THIS_MODULE, //这是一个宏，推向编译模块时自动创建
